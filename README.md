@@ -64,6 +64,30 @@ By default, the `jlpm build` command generates the source maps for this extensio
 jupyter lab build --minimize=False
 ```
 
+For the server component to function properly make sure you have setup the following
+
+1. Create a config in the same level where `setup.py` is located. 
+    
+    ```jsx
+    vim jupyter_config/jupyter_server_config.d/simplext3.json
+    ```
+    
+    ```jsx
+    {
+        "ServerApp": {
+            "jpserver_extensions": {
+                "simplext3": true
+            }
+        }
+    }
+    ```
+    
+2. Enable the server plugin
+    
+    ```jsx
+    jupyter server extension enable simplext3
+    ```
+
 ### Development uninstall
 
 ```bash
@@ -97,3 +121,7 @@ More information are provided within the [ui-tests](./ui-tests/README.md) README
 ### Packaging the extension
 
 See [RELEASE](RELEASE.md)
+
+### Learn More About Development Tricks
+
+https://www.notion.so/PipLister-Extension-1198090ae25b8099b90beacd51e3c6c1?pvs=4
